@@ -9,6 +9,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Heading from "../components/text/Heading";
 import Labels from "../../resources/label";
 import styles from "../components/styles";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen({ navigation }) {
   const [productList, setProductList] = useState([]);
@@ -43,8 +44,11 @@ export default function HomeScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.homeContainer}>
-      <ScrollView>
+    <SafeAreaView style={styles.homeContainer}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.scrollViewContent}>
         <Spacer height={50} />
         <Heading text={Labels.CATEGORIES}></Heading>
         <Spacer height={20} />
@@ -67,6 +71,6 @@ export default function HomeScreen({ navigation }) {
           contentContainerStyle={styles.productContainer}
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

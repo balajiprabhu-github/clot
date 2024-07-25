@@ -69,15 +69,15 @@ const styles = StyleSheet.create({
   },
 
   categoryImage: {
-    height: 80,
-    width: 80,
+    height: 70,
+    width: 70,
     margin: 0,
-    borderRadius: 40,
+    borderRadius: 35,
   },
 
   categoryTitle: {
     fontSize: 14,
-    marginTop: 5,
+    marginTop: 8,
   },
 
   productTile: {
