@@ -28,20 +28,19 @@ export default function SignInScreen({ navigation }) {
   };
 
   const handleLogin = async () => {
-    try {
-      const res = await apiCall("/auth/login", "POST", {
-        username: emailOrUserName,
-        password: password,
-      });
-
-      console.log(res);
-
-      if (res.token) {
-        await KeyStore.save("userToken", res.token);
-        navigation.replace(Route.HOME_SCREEN);
+    if (enableButton) {
+      try {
+        const res = await apiCall("/auth/login", "POST", {
+          username: emailOrUserName,
+          password: password,
+        });
+        if (res.token) {
+         await KeyStore.save("userToken", res.token);
+         navigation.replace(Route.HOME_SCREEN);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   };
 

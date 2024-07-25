@@ -1,41 +1,104 @@
-import React from 'react';
-import PrimaryTextInput from '../components/text/PrimaryTextInput';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import BackButton from '../components/buttons/BackButton';
-import Spacer from '../components/Spacer';
-import Title from '../components/text/Title';
-import PrimaryButton from '../components/buttons/PrimaryButton';
-import styles from '../components/styles';
-import Labels from '../../resources/label';
+import React from "react";
+import { useState } from "react";
+import PrimaryTextInput from "../components/text/PrimaryTextInput";
+import { SafeAreaView } from "react-native-safe-area-context";
+import BackButton from "../components/buttons/BackButton";
+import Spacer from "../components/Spacer";
+import Title from "../components/text/Title";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import styles from "../components/styles";
+import Labels from "../../resources/label";
+import apiCall from "../../data/network/ApiClient";
+import GenerateRandomToken from "../../utilities/tokenGenerator";
+import KeyStore from "../../data/local/KeyStore";
+import Route from "../../resources/routes";
 
-export default function CreateAccountScreen({navigation}) {
-    return (
-      <SafeAreaView style={styles.defaultContainer}>
-        <BackButton navigation={navigation}></BackButton>
+export default function CreateAccountScreen({ navigation }) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [enableButton, setEnableButton] = useState(false);
 
-        <Spacer height={20}></Spacer>
+  const handleEnableButton = () => {
+    if (
+      firstName != null &&
+      lastName != null &&
+      email != null &&
+      password != null
+    ) {
+      setEnableButton(true);
+    }
+  };
 
-        <Title text={Labels.CREATE_ACCOUNT}></Title>
+  const handleCreateAccount = async () => {
+    if (enableButton) {
+      try {
+        const response = await apiCall("/users", "POST", {
+          email: email,
+          username: firstName + lastName,
+          password: password,
+          name: {
+            firstname: firstName,
+            lastname: lastName,
+          },
+          address: {
+            city: "kilcoole",
+            street: "7835 new road",
+            number: 3,
+            zipcode: "12926-3874",
+            geolocation: {
+              lat: "-37.3159",
+              long: "81.1496",
+            },
+          },
+          phone: "1-570-236-7033",
+        });
 
-        <Spacer height={20}></Spacer>
+        if (response) {
+         await KeyStore.save("userToken", GenerateRandomToken());
+         navigation.replace(Route.HOME_SCREEN);
+        }
 
-        <PrimaryTextInput placeholder={Labels.FIRST_NAME}></PrimaryTextInput>
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
-        <Spacer height={20}></Spacer>
+  return (
+    <SafeAreaView style={styles.defaultContainer}>
+      <BackButton navigation={navigation}></BackButton>
 
-        <PrimaryTextInput placeholder={Labels.LAST_NAME}></PrimaryTextInput>
+      <Spacer height={20}></Spacer>
 
-        <Spacer height={20}></Spacer>
+      <Title text={Labels.CREATE_ACCOUNT}></Title>
 
-        <PrimaryTextInput placeholder={Labels.EMAIL}></PrimaryTextInput>
+      <Spacer height={20}></Spacer>
 
-        <Spacer height={20}></Spacer>
+      <PrimaryTextInput placeholder={Labels.FIRST_NAME}></PrimaryTextInput>
 
-        <PrimaryTextInput placeholder={Labels.PASSWORD}></PrimaryTextInput>
+      <Spacer height={20}></Spacer>
 
-        <Spacer height={40}></Spacer>
+      <PrimaryTextInput placeholder={Labels.LAST_NAME}></PrimaryTextInput>
 
-        <PrimaryButton label={Labels.CONTINUE}></PrimaryButton>
-      </SafeAreaView>
-    );
+      <Spacer height={20}></Spacer>
+
+      <PrimaryTextInput placeholder={Labels.EMAIL}></PrimaryTextInput>
+
+      <Spacer height={20}></Spacer>
+
+      <PrimaryTextInput
+        shouldHide={true}
+        onTextChange={handleEnableButton}
+        placeholder={Labels.PASSWORD}></PrimaryTextInput>
+
+      <Spacer height={40}></Spacer>
+
+      <PrimaryButton
+        label={Labels.CONTINUE}
+        enabled={enableButton}
+        onPress={handleCreateAccount}></PrimaryButton>
+    </SafeAreaView>
+  );
 }

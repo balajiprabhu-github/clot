@@ -8,6 +8,7 @@ import categoryData from "../../data/mock/CategoriesList";
 import { ScrollView } from "react-native-gesture-handler";
 import Heading from "../components/text/Heading";
 import Labels from "../../resources/label";
+import styles from "../components/styles";
 
 export default function HomeScreen({ navigation }) {
 

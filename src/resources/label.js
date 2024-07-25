@@ -7,7 +7,7 @@ const Labels = {
   CREATE_ACCOUNT: "Create Account",
   FIRST_NAME: "First Name",
   LAST_NAME: "Last Name",
-  EMAIL: "Email",
+  EMAIL: "Email Address",
   CATEGORIES: "Categories",
   TRENDING_NOW: "Trending Now"
 };
