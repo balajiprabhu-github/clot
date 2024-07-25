@@ -8,17 +8,22 @@ const axiosInstance = axios.create({
 });
 
 const apiCall = async (endpoint, method, data = null) => {
-  try {
-    const response = await axiosInstance({
-      url: endpoint,
-      method: method,
-      data: data,
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Error during API call:", error);
-    throw error;
-  }
+   try {
+     const config = {
+       url: endpoint,
+       method: method,
+     };
+
+     if (method !== "GET") {
+       config.data = data;
+     }
+
+     const response = await axiosInstance(config);
+     return response.data;
+   } catch (error) {
+     console.error("Error during API call:", error);
+     throw error;
+   }
 };
 
 export default apiCall;

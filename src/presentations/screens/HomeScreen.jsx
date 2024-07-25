@@ -11,7 +11,6 @@ import Labels from "../../resources/label";
 import styles from "../components/styles";
 
 export default function HomeScreen({ navigation }) {
-
   const [productList, setProductList] = useState([]);
   const [error, setError] = useState(null);
 
@@ -19,7 +18,6 @@ export default function HomeScreen({ navigation }) {
     const getProducts = async () => {
       try {
         const response = await apiCall("/products", "GET");
-        console.log(response);
         setProductList(response);
       } catch (error) {
         console.error("Error fetching products:", error);
