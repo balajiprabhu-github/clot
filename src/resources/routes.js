@@ -7,6 +7,7 @@ const Route = {
   FAVOURITES_SCREEN: "Favourites",
   CART_SCREEN: "Cart",
   USER_PROFILE_SCREEN: "Profile",
+  VIEW_CATEGORY_SCREEN: "ViewCategoryScreen",
 };
 
 export default Route;

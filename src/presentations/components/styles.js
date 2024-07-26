@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
+  viewCategoryContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20
+  },
+
   splashContainer: {
     flex: 1,
     backgroundColor: "#8E6CEF",

@@ -1,13 +1,15 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Text, Image, TouchableOpacity } from "react-native";
 import styles from "../styles";
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, onPress }) => {
   return (
-    <View style={styles.categoryItem}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={styles.categoryItem}>
       <Image source={category.image} style={styles.categoryImage} />
       <Text style={styles.categoryTitle}>{category.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

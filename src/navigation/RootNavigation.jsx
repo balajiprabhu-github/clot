@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import CreateAccountScreen from "../presentations/screens/auth/CreateAccountScreen";
 import Route from "../resources/routes";
 import TabNavigation from "./TabNavigation";
+import ViewCategoryScreen from "../presentations/screens/category/ViewCategoryScreen";
 const Stack = createStackNavigator();
 
 const RootNavigation = () => {
@@ -29,6 +30,11 @@ const RootNavigation = () => {
         <Stack.Screen
           name={Route.STACK_HOME_SCREEN}
           component={TabNavigation}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={Route.VIEW_CATEGORY_SCREEN}
+          component={ViewCategoryScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
