@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import PrimaryTextInput from "../components/text/PrimaryTextInput";
+import PrimaryTextInput from "../../components/text/PrimaryTextInput";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BackButton from "../components/buttons/BackButton";
-import Spacer from "../components/Spacer";
-import Title from "../components/text/Title";
-import PrimaryButton from "../components/buttons/PrimaryButton";
-import styles from "../components/styles";
-import Labels from "../../resources/label";
-import apiCall from "../../data/network/ApiClient";
-import GenerateRandomToken from "../../utilities/tokenGenerator";
-import KeyStore from "../../data/local/KeyStore";
-import Route from "../../resources/routes";
+import BackButton from "../../components/buttons/BackButton";
+import Spacer from "../../components/Spacer";
+import Title from "../../components/text/Title";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import styles from "../../components/styles";
+import Labels from "../../../resources/label";
+import apiCall from "../../../data/network/ApiClient";
+import GenerateRandomToken from "../../../utilities/tokenGenerator";
+import KeyStore from "../../../data/local/KeyStore";
+import Route from "../../../resources/routes";
 
 export default function CreateAccountScreen({ navigation }) {
   const [firstName, setFirstName] = useState("");
@@ -20,16 +20,29 @@ export default function CreateAccountScreen({ navigation }) {
   const [password, setPassword] = useState("");
   const [enableButton, setEnableButton] = useState(false);
 
-  const handleEnableButton = () => {
+  const handleEnableButton = (text) => {
     if (
       firstName != null &&
       lastName != null &&
       email != null &&
       password != null
     ) {
+      setPassword(text)
       setEnableButton(true);
     }
   };
+
+  const handleFirstName = (firstName) => {
+    setFirstName(firstName)
+  }
+
+  const handleLastName = (lastName) => {
+    setLastName(lastName)
+  }
+
+  const handleEmail = (email) => {
+    setEmail(email)
+  }
 
   const handleCreateAccount = async () => {
     if (enableButton) {
@@ -76,15 +89,21 @@ export default function CreateAccountScreen({ navigation }) {
 
       <Spacer height={20}></Spacer>
 
-      <PrimaryTextInput placeholder={Labels.FIRST_NAME}></PrimaryTextInput>
+      <PrimaryTextInput
+        onTextChange={handleFirstName}
+        placeholder={Labels.FIRST_NAME}></PrimaryTextInput>
 
       <Spacer height={20}></Spacer>
 
-      <PrimaryTextInput placeholder={Labels.LAST_NAME}></PrimaryTextInput>
+      <PrimaryTextInput
+        onTextChange={handleLastName}
+        placeholder={Labels.LAST_NAME}></PrimaryTextInput>
 
       <Spacer height={20}></Spacer>
 
-      <PrimaryTextInput placeholder={Labels.EMAIL}></PrimaryTextInput>
+      <PrimaryTextInput
+        onTextChange={handleEmail}
+        placeholder={Labels.EMAIL}></PrimaryTextInput>
 
       <Spacer height={20}></Spacer>
 

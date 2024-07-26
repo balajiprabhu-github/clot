@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, View, Text } from "react-native";
-import ProductTile from "../components/items/ProductTile";
-import apiCall from "../../data/network/ApiClient";
-import Spacer from "../components/Spacer";
-import CategoryItem from "../components/items/CategoryItem";
-import categoryData from "../../data/mock/CategoriesList";
+import ProductTile from "../../components/items/ProductTile";
+import apiCall from "../../../data/network/ApiClient";
+import Spacer from "../../components/Spacer";
+import CategoryItem from "../../components/items/CategoryItem";
+import categoryData from "../../../data/mock/CategoriesList";
 import { ScrollView } from "react-native-gesture-handler";
-import Heading from "../components/text/Heading";
-import Labels from "../../resources/label";
-import styles from "../components/styles";
+import Heading from "../../components/text/Heading";
+import Labels from "../../../resources/label";
+import styles from "../../components/styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen({ navigation }) {

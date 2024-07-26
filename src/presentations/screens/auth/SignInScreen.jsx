@@ -1,14 +1,14 @@
 import { Text, View } from "react-native";
 import { useState } from "react";
-import Spacer from "../components/Spacer";
-import PrimaryTextInput from "../components/text/PrimaryTextInput";
-import PrimaryButton from "../components/buttons/PrimaryButton";
-import Title from "../components/text/Title";
-import apiCall from "../../data/network/ApiClient";
-import KeyStore from "../../data/local/KeyStore";
-import styles from "../components/styles";
-import Labels from "../../resources/label";
-import Route from "../../resources/routes";
+import Spacer from "../../components/Spacer";
+import PrimaryTextInput from "../../components/text/PrimaryTextInput";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import Title from "../../components/text/Title";
+import apiCall from "../../../data/network/ApiClient";
+import KeyStore from "../../../data/local/KeyStore";
+import styles from "../../components/styles";
+import Labels from "../../../resources/label";
+import Route from "../../../resources/routes";
 
 export default function SignInScreen({ navigation }) {
   
