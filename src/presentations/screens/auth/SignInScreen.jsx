@@ -11,7 +11,6 @@ import Labels from "../../../resources/label";
 import Route from "../../../resources/routes";
 
 export default function SignInScreen({ navigation }) {
-  
   const [emailOrUserName, setEmailOrUserName] = useState(null);
   const [password, setPassword] = useState(null);
   const [enableButton, setEnableButton] = useState(false);
@@ -35,8 +34,8 @@ export default function SignInScreen({ navigation }) {
           password: password,
         });
         if (res.token) {
-         await KeyStore.save("userToken", res.token);
-         navigation.replace(Route.HOME_SCREEN);
+          await KeyStore.save("userToken", res.token);
+         navigation.replace(Route.STACK_HOME_SCREEN);
         }
       } catch (error) {
         console.error(error);

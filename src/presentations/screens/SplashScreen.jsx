@@ -8,21 +8,21 @@ import Route from "../../resources/routes";
 export default function SplashScreen({ navigation }) {
 
   useEffect(() => {
-   const timer = setTimeout(async () => {
-     try {
-       const userToken = await KeyStore.get("userToken");
-       if (userToken) {
-         navigation.replace(Route.HOME_SCREEN);
-       } else {
-         navigation.replace(Route.SIGN_IN_SCREEN);
-       }
-     } catch (e) {
-       console.error(e);
-       navigation.replace(Route.SIGN_IN_SCREEN);
-     }
-   }, 3000);
+    const timer = setTimeout(async () => {
+      try {
+        const userToken = await KeyStore.get("userToken");
+        if (userToken) {
+         navigation.replace(Route.STACK_HOME_SCREEN);
+        } else {
+          navigation.replace(Route.SIGN_IN_SCREEN);
+        }
+      } catch (e) {
+        console.error(e);
+        navigation.replace(Route.SIGN_IN_SCREEN);
+      }
+    }, 3000);
 
-   return () => clearTimeout(timer);
+    return () => clearTimeout(timer);
   }, [navigation]);
 
   return (

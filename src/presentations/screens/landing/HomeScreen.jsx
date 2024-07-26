@@ -44,7 +44,7 @@ export default function HomeScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.homeContainer}>
+    <View style={styles.homeContainer}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -71,6 +71,6 @@ export default function HomeScreen({ navigation }) {
           contentContainerStyle={styles.productContainer}
         />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

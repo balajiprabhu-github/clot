@@ -27,22 +27,22 @@ export default function CreateAccountScreen({ navigation }) {
       email != null &&
       password != null
     ) {
-      setPassword(text)
+      setPassword(text);
       setEnableButton(true);
     }
   };
 
   const handleFirstName = (firstName) => {
-    setFirstName(firstName)
-  }
+    setFirstName(firstName);
+  };
 
   const handleLastName = (lastName) => {
-    setLastName(lastName)
-  }
+    setLastName(lastName);
+  };
 
   const handleEmail = (email) => {
-    setEmail(email)
-  }
+    setEmail(email);
+  };
 
   const handleCreateAccount = async () => {
     if (enableButton) {
@@ -69,10 +69,9 @@ export default function CreateAccountScreen({ navigation }) {
         });
 
         if (response) {
-         await KeyStore.save("userToken", GenerateRandomToken());
-         navigation.replace(Route.HOME_SCREEN);
+          await KeyStore.save("userToken", GenerateRandomToken());
+         navigation.replace(Route.STACK_HOME_SCREEN);
         }
-
       } catch (error) {
         console.log(error);
       }

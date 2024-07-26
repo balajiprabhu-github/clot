@@ -1,10 +1,10 @@
 import SplashScreen from "../presentations/screens/SplashScreen";
-import SignInScreen from "../presentations/screens/SignInScreen";
-import HomeScreen from "../presentations/screens/HomeScreen";
+import SignInScreen from "../presentations/screens/auth/SignInScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import CreateAccountScreen from "../presentations/screens/CreateAccountScreen";
+import CreateAccountScreen from "../presentations/screens/auth/CreateAccountScreen";
 import Route from "../resources/routes";
+import TabNavigation from "./TabNavigation";
 const Stack = createStackNavigator();
 
 const RootNavigation = () => {
@@ -27,8 +27,8 @@ const RootNavigation = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name={Route.HOME_SCREEN}
-          component={HomeScreen}
+          name={Route.STACK_HOME_SCREEN}
+          component={TabNavigation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
