@@ -9,7 +9,12 @@ const Labels = {
   LAST_NAME: "Last Name",
   EMAIL: "Email Address",
   CATEGORIES: "Categories",
-  TRENDING_NOW: "Trending Now"
+  TRENDING_NOW: "Trending Now",
+  MY_CART: "My Cart",
+  CHECKOUT: "Checkout",
+  EDIT_PROFILE: "Edit Profile",
+  SAVE_CHANGES: "Save Changes",
+  LOGOUT: "Logout"
 };
 
 export default Labels;
