@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   },
   userProfileContainer: {
     padding: 20,
-    paddingBottom: 40, // Add padding to the bottom to avoid overlap with navigation bar
+    paddingBottom: 40, 
     backgroundColor: "white",
   },
   userProfileHeading: {
@@ -273,7 +273,6 @@ const styles = StyleSheet.create({
   logoutButtonText: {
     color: "red",
     fontSize: 16,
-    fontWeight: "bold",
   },
 });
 
