@@ -10,7 +10,13 @@ const styles = StyleSheet.create({
   viewCategoryContainer: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+  },
+
+  cartContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
   },
 
   splashContainer: {
@@ -171,6 +177,103 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     marginTop: 20,
+  },
+
+  cartContainer: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  cartInnerContainer: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+  cartProductContainer: {
+    flexGrow: 1,
+  },
+  cartHeader: {
+    marginLeft: 20,
+    marginVertical: 16,
+  },
+  cartFooter: {
+    padding: 16,
+    width: "100%",
+  },
+  cartErrorContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cartErrorText: {
+    color: "red",
+    fontSize: 18,
+  },
+
+  cartItemContainer: {
+    flexDirection: "row",
+    padding: 16,
+    width: "100%",
+  },
+  cartItemImage: {
+    height: 100,
+    width: 80,
+    resizeMode: "center",
+    marginRight: 10,
+  },
+  cartItemDetails: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+  cartItemTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartItemDescription: {
+    fontSize: 14,
+    color: "#666",
+  },
+  cartItemRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 8,
+  },
+  cartItemQuantity: {
+    fontSize: 14,
+  },
+  cartItemPrice: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+
+  userProfileSafeArea: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  userProfileContainer: {
+    padding: 20,
+    paddingBottom: 40, // Add padding to the bottom to avoid overlap with navigation bar
+    backgroundColor: "white",
+  },
+  userProfileHeading: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  userProfileField: {
+    marginBottom: 15,
+  },
+
+  logoutButton: {
+    height: 50,
+    backgroundColor: "#F4F4F4",
+    borderRadius: 40,
+    padding: 12,
+    alignItems: "center",
+  },
+
+  logoutButtonText: {
+    color: "red",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
