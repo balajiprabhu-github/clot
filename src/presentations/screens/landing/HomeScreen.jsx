@@ -66,7 +66,7 @@ export default function HomeScreen({ navigation }) {
           horizontal
           keyExtractor={(item) => item.id}
           renderItem={renderCategory}
-          scrollEnabled={false}
+          scrollEnabled={true}
           showsHorizontalScrollIndicator={false}
         />
         <Heading text={Labels.TRENDING_NOW}></Heading>

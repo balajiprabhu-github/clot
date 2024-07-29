@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, View, Text } from "react-native";
 import ProductTile from "../../components/items/ProductTile";
-import apiCall from "../../../data/network/ApiClient";
 import Spacer from "../../components/Spacer";
 import { ScrollView } from "react-native-gesture-handler";
 import Heading from "../../components/text/Heading";
@@ -11,23 +10,23 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default ViewCategoryScreen = ({ route }) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const { category } = route.params;
   const [productList, setProductList] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-      console.log(category.param);
-   const getProducts = async () => {
-     try {
-       fetch(`https://fakestoreapi.com/products/category/${category.param}`)
-         .then((res) => res.json())
-         .then((json) => setProductList(json));
-     } catch (error) {
-       console.error("Error fetching products:", error);
-       setError(error.message);
-     }
-   };
+    console.log(category.param);
+    const getProducts = async () => {
+      try {
+        fetch(`https://fakestoreapi.com/products/category/${category.param}`)
+          .then((res) => res.json())
+          .then((json) => setProductList(json));
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setError(error.message);
+      }
+    };
     getProducts();
   }, []);
 
